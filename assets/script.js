@@ -3,10 +3,10 @@
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var number = "0123456789";
-var symbol = "!@#$%^&*(){}[]<>?,./;:-=_+"
+var symbol = "!@#$%^&*(){}[]<>?,./;:-=_+";
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.getElementById("generate");
 
 function generatePassword() {
   // Add empty strings for the password parameters to fill
@@ -15,8 +15,9 @@ function generatePassword() {
 
   // Prompt for the length of the password
   var lengthPrompt = prompt("Enter a number between 8-128 for your password length.");
-  if (length < 8 || length > 128) {
-    window.alert("You need to pick a number between 8 and 128!");
+  if (lengthPrompt < 8 || lengthPrompt > 128) {
+    alert("You need to pick a number between 8 and 128!");
+    // Start prompts over again until proper conditions are met
     return generatePassword();
   }
 
@@ -56,6 +57,7 @@ function generatePassword() {
 
 
   // Return variable here
+  return finalPassword;
 }
 
 // Write password to the #password input
