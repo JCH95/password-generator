@@ -14,12 +14,18 @@ function generatePassword() {
   var finalPassword = "";
 
   // Prompt for the length of the password
-  var lengthPrompt = prompt("Enter a number between 8-128 for your password length.");
+  var lengthPrompt = parseInt(prompt("Enter a number between 8-128 for your password length."));
   if (lengthPrompt < 8 || lengthPrompt > 128) {
     alert("You need to pick a number between 8 and 128!");
     // Start prompts over again until proper conditions are met
     return generatePassword();
   }
+  // Check if letters were entered in number prompt
+  // var letters = /^[a-zA-Z]+$/;
+  // if (lengthPrompt.value.match(letters)) {
+  //   alert("Please enter numeric values only!");
+  //   return generatePassword();
+  // }
 
   // Prompt for if the password will/will not include lowercase letters
   var lowerPrompt = confirm("Confirm if you want your password to contain lowercase letters.");
@@ -45,16 +51,17 @@ function generatePassword() {
     characters = characters + symbol;
   }
 
-  // Check if all were false.
-  if (lower && upper && number && symbol == false) {
-    window.prompt("You must confirm at least one choice for the password!");
+  // Check if all were false
+  if (!lowerPrompt && !upperPrompt && !numberPrompt && !symbolPrompt) {
+    alert("You must confirm at least one choice for the password!");
+    // Start prompts over agin until at least 1 is included
+    return generatePassword();
   }
 
-  // Check if letters were entered in number prompt.
-
-
-
-
+  // For loop to generate the password based on it's length, and randomizes each option at each point of the password.
+  for (let i = 0; i < lengthPrompt; i++) {
+    finalPassword = finalPassword + characters.charAt(Math.floor(Math.random() * characters.length));
+  }
 
   // Return variable here
   return finalPassword;
