@@ -6,3 +6,4 @@ This project is a random password generator. The user is met with a page with a 
 
 
 # URL of the deployed application: 
+https://jch95.github.io/password-generator-bingbong/
