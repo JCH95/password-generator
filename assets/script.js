@@ -21,11 +21,11 @@ function generatePassword() {
     return generatePassword();
   }
   // Check if letters were entered in number prompt
-  // var letters = /^[a-zA-Z]+$/;
-  // if (lengthPrompt.value.match(letters)) {
-  //   alert("Please enter numeric values only!");
-  //   return generatePassword();
-  // }
+  var letters = /^[a-zA-Z]+$/;
+  if (letters.test(lengthPrompt)) {
+    alert("Please enter numeric values only!");
+    return generatePassword();
+  }
 
   // Prompt for if the password will/will not include lowercase letters
   var lowerPrompt = confirm("Confirm if you want your password to contain lowercase letters.");
